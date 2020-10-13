@@ -20,61 +20,36 @@ import com.github.nalukit.nalu.client.internal.HandlerRegistrations;
 import com.github.nalukit.nalu.client.internal.annotation.NaluInternalUse;
 
 public abstract class AbstractComponent<C extends IsComponent.Controller, W>
-    implements IsComponent<C, W> {
-  
+    extends AbstractCommonComponent<C>
+    implements IsComponent<C, W>, IsAbstractComponent {
+
   protected HandlerRegistrations handlerRegistrations = new HandlerRegistrations();
-  
-  private C controller;
-  
+
   private W element;
-  
+
   public AbstractComponent() {
   }
-  
+
   protected void initElement(W element) {
     this.element = element;
   }
-  
+
   @Override
   public W asElement() {
     assert element != null : "no element set!";
     return this.element;
   }
-  
-  /**
-   * <b>Important:<br>
-   * Inside the render-method, you have to call the initElement-method!</b>
-   */
-  @Override
-  public abstract void render();
-  
-  @Override
-  public void bind() {
-    // if you need to bind some handlers and would like to do this in a separate method
-    // just override this method.
-  }
-  
-  @Override
-  public C getController() {
-    return this.controller;
-  }
-  
-  @Override
-  @NaluInternalUse
-  public final void setController(C controller) {
-    this.controller = controller;
-  }
-  
+
   @Override
   public void onAttach() {
     // if you need to do something in case the widget is added to the DOM tree
   }
-  
+
   @Override
   public void onDetach() {
     // if you need to do something in case the widget is removed from the DOM tree
   }
-  
+
   /**
    * internal framework method! Will be called by the framework after the
    * stop-method f the controller is called
@@ -86,5 +61,5 @@ public abstract class AbstractComponent<C extends IsComponent.Controller, W>
     this.handlerRegistrations.removeHandler();
     this.handlerRegistrations = new HandlerRegistrations();
   }
-  
+
 }

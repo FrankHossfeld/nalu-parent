@@ -974,6 +974,17 @@ abstract class AbstractRouter
 
   private void append(String selector,
                       ControllerInstance controllerInstance) {
+    if (controllerInstance.getController()
+                          .asElement() == null) {
+      String sb = "controller element of controller >>" + controllerInstance.getControllerClassName() + "<< is null! --> Routing aborted!";
+      this.eventBus.fireEvent(LogEvent.create()
+                                      .sdmOnly(false)
+                                      .addMessage(sb));
+      eventBus.fireEvent(NaluErrorEvent.createNaluError()
+                                       .errorId(NaluConstants.NALU_ERROR_ELEMENT_IS_NULL)
+                                       .message(sb)
+                                       .route("NoRouteAvailable"));
+    }
     if (this.plugin.attach(selector,
                            controllerInstance.getController()
                                              .asElement())) {
@@ -994,6 +1005,16 @@ abstract class AbstractRouter
 
   private void append(String selector,
                       AbstractCompositeController<?, ?, ?> compositeController) {
+    if (compositeController.asElement() == null) {
+      String sb = "composite controller element is null! --> Routing aborted!";
+      this.eventBus.fireEvent(LogEvent.create()
+                                      .sdmOnly(false)
+                                      .addMessage(sb));
+      eventBus.fireEvent(NaluErrorEvent.createNaluError()
+                                       .errorId(NaluConstants.NALU_ERROR_ELEMENT_IS_NULL)
+                                       .message(sb)
+                                       .route("NoRouteAvailable"));
+    }
     if (!this.plugin.attach(selector,
                             compositeController.asElement())) {
       String sb = "no element found, that matches selector >>" + selector + "<< --> Routing aborted!";

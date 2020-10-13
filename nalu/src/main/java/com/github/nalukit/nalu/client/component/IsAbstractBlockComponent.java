@@ -16,24 +16,10 @@
 
 package com.github.nalukit.nalu.client.component;
 
-public abstract class AbstractPopUpComponent<C extends IsPopUpComponent.Controller>
-    extends AbstractCommonComponent<C>
-    implements IsPopUpComponent<C>,
-               IsAbstractPopUpComponent {
+import com.github.nalukit.nalu.client.internal.annotation.NaluInternalUse;
 
-  public AbstractPopUpComponent() {
-  }
-
-  /**
-   * call to show the popup
-   */
-  @Override
-  public abstract void show();
-
-  /**
-   * call to hide the popup
-   */
-  @Override
-  public abstract void hide();
-
+/**
+ * Marker-interface for mark class as AbstractBlockComponent.
+ */
+public interface IsAbstractBlockComponent {
 }

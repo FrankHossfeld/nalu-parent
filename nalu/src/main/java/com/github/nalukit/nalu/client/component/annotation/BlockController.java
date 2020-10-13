@@ -16,10 +16,7 @@
 
 package com.github.nalukit.nalu.client.component.annotation;
 
-import com.github.nalukit.nalu.client.component.AbstractBlockComponent;
-import com.github.nalukit.nalu.client.component.AlwaysShowBlock;
-import com.github.nalukit.nalu.client.component.IsBlockComponent;
-import com.github.nalukit.nalu.client.component.IsShowBlockCondition;
+import com.github.nalukit.nalu.client.component.*;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -47,7 +44,7 @@ public @interface BlockController {
   
   Class<? extends IsBlockComponent<?>> componentInterface();
   
-  Class<? extends AbstractBlockComponent<?>> component();
+  Class<? extends IsAbstractBlockComponent> component();
   
   /**
    * Conditional class to show the block depending on the return result

@@ -18,32 +18,22 @@ package com.github.nalukit.nalu.client.component;
 
 import com.github.nalukit.nalu.client.internal.annotation.NaluInternalUse;
 
-public interface IsPopUpComponent<C extends IsPopUpComponent.Controller> {
-  
-  /**
-   * Render your component here
-   */
-  void render();
-  
-  void bind();
-  
-  C getController();
-  
-  @NaluInternalUse
-  void setController(C controller);
-  
+public interface IsPopUpComponent<C extends IsPopUpComponent.Controller>
+    extends IsCommonComponent<C> {
+
   /**
    * Call this method to show the component
    */
   void show();
-  
+
   /**
    * Call this method to hide the component
    */
   void hide();
-  
-  interface Controller {
-  
+
+  interface Controller
+      extends IsCommonComponent.Controller {
+
   }
-  
+
 }

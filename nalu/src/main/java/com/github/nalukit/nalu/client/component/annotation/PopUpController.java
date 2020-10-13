@@ -16,7 +16,7 @@
 
 package com.github.nalukit.nalu.client.component.annotation;
 
-import com.github.nalukit.nalu.client.component.AbstractPopUpComponent;
+import com.github.nalukit.nalu.client.component.IsAbstractPopUpComponent;
 import com.github.nalukit.nalu.client.component.IsPopUpComponent;
 
 import java.lang.annotation.ElementType;
@@ -39,11 +39,11 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface PopUpController {
-  
+
   String name();
-  
+
   Class<? extends IsPopUpComponent<?>> componentInterface();
-  
-  Class<? extends AbstractPopUpComponent<?>> component();
-  
+
+  Class<? extends IsAbstractPopUpComponent> component();
+
 }

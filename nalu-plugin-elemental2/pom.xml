@@ -25,7 +25,7 @@
   <parent>
     <groupId>com.github.nalukit</groupId>
     <artifactId>nalu-parent</artifactId>
-    <version>HEAD-SNAPSHOT</version>
+    <version>R2D2-SNAPSHOT</version>
   </parent>
 
   <artifactId>nalu-plugin-elemental2</artifactId>

@@ -18,6 +18,7 @@ package com.github.nalukit.nalu.client.component;
 
 public abstract class AbstractCompositeComponent<C extends IsComponent.Controller, W>
     extends AbstractComponent<C, W>
-    implements IsCompositeComponent<C, W> {
-  
+    implements IsCompositeComponent<C, W>,
+               IsAbstractCompositeComponent {
+
 }

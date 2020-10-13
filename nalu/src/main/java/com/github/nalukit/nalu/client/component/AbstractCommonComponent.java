@@ -18,20 +18,39 @@ package com.github.nalukit.nalu.client.component;
 
 import com.github.nalukit.nalu.client.internal.annotation.NaluInternalUse;
 
-public interface IsComponent<C extends IsComponent.Controller, W>
-    extends IsCommonComponent<C> {
+public abstract class AbstractCommonComponent<C extends IsCommonComponent.Controller>
+    implements IsCommonComponent<C> {
 
-  W asElement();
+  private C controller;
 
-  void onAttach();
-
-  void onDetach();
-
-  void removeHandlers();
-
-  interface Controller
-      extends IsCommonComponent.Controller {
-
+  public AbstractCommonComponent() {
   }
 
+  /**
+   * create the block here
+   */
+  @Override
+  public abstract void render();
+
+  /**
+   * Gets the related controller.
+   *
+   * @return the controller for the component
+   */
+  @Override
+  public C getController() {
+    return this.controller;
+  }
+
+  @Override
+  @NaluInternalUse
+  public final void setController(C controller) {
+    this.controller = controller;
+  }
+
+  @Override
+  public void bind() {
+    // if you need to bind some handlers and would like to do this in a separate method
+    // just override this method.
+  }
 }

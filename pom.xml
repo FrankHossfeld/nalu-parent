@@ -24,7 +24,7 @@
 
   <groupId>com.github.nalukit</groupId>
   <artifactId>nalu-parent</artifactId>
-  <version>HEAD-SNAPSHOT</version>
+  <version>R2D2-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>nalu-parent</name>
