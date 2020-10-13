@@ -16,10 +16,14 @@
 
 package com.github.nalukit.nalu.client.component;
 
-import com.github.nalukit.nalu.client.internal.annotation.NaluInternalUse;
-
 /**
  * Marker-interface for mark class as AbstractBlockComponent.
+ *
+ * Use this Marker Interface only if you want to create
+ * common component classes.
+ *
+ * Note:
+ * Do not use it in interfaces only in abstract classes.
  */
 public interface IsAbstractBlockComponent {
 }

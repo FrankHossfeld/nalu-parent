@@ -18,6 +18,12 @@ package com.github.nalukit.nalu.client.component;
 
 /**
  * Marker-interface for mark class as AbstractCompositeComponent.
+ *
+ * Use this Marker Interface only if you want to create
+ * common component classes.
+ *
+ * Note:
+ * Do not use it in interfaces only in abstract classes.
  */
 public interface IsAbstractCompositeComponent {
 }
